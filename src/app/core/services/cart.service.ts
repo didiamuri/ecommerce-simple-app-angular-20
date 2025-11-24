@@ -1,11 +1,11 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { Product, CartItem } from '../models/models';
+import {Injectable, signal, computed} from '@angular/core';
+import {Product, CartItem} from '../models/models';
 
 @Injectable({
     providedIn: 'root',
 })
 export class CartService {
-    private cartItemsSignal = signal<CartItem[]>([]);
+    private readonly cartItemsSignal = signal<CartItem[]>([]);
 
     readonly cartItems = this.cartItemsSignal.asReadonly();
 
@@ -63,7 +63,7 @@ export class CartService {
         this.cartItemsSignal.update((items) =>
             items.map((item) =>
                 item.id === productId
-                    ? { ...item, quantity, total: quantity * item.price }
+                    ? {...item, quantity, total: quantity * item.price}
                     : item
             )
         );

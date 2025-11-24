@@ -1,16 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable, inject} from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ApiService {
-    private http = inject(HttpClient);
-    private baseUrl = 'https://dummyjson.com';
+    private readonly http = inject(HttpClient);
+    private readonly baseUrl = 'https://dummyjson.com';
 
     get<T>(path: string, params?: any): Observable<T> {
-        return this.http.get<T>(`${this.baseUrl}/${path}`, { params });
+        return this.http.get<T>(`${this.baseUrl}/${path}`, {params});
     }
 
     post<T>(path: string, body: any): Observable<T> {

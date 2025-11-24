@@ -6,11 +6,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     selector: 'app-root',
     standalone: true,
     imports: [RouterOutlet, NavbarComponent],
-    template: `
-    <app-navbar></app-navbar>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  `,
+    templateUrl: './app.html',
 })
 export class App { }
